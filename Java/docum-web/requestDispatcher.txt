@@ -1,0 +1,19 @@
+
+RequestDispatcher 
+
+Devuelve un objeto RequestDispatcher que actúa como un contenedor para los recursos situados en la ruta dada. 
+Un objeto RequestDispatcher se puede utilizar para enviar una solicitud al recurso o para incluir el recurso 
+en una respuesta. El recurso puede ser dinámico o estático.
+La ruta de acceso especificada puede ser relativa, aunque no puede extenderse fuera del contexto servlet actual.
+Si la ruta comienza con un "/" se interpreta como relativa a la raíz del contexto actual.
+Este método devuelve null si el contenedor de servlets no puede devolver un RequestDispatcher.
+
+Forward
+
+Reenvía la petición de un servlet a otro recurso (servlets, archivos JSP o HTML) en el servidor.
+Este método permite que un servlet para realizar el procesamiento preliminar de una solicitud y otro recurso para generar la respuesta.
+Para una RequestDispatcher obtenido a través de getRequestDispatcher (), el objeto ServletRequest tiene sus elementos de trayecto y los parámetros ajustados para coincidir con la ruta del recurso de destino.
+hacia adelante debe ser llamada antes de que la respuesta ha estado comprometida con el cliente (antes de la salida del cuerpo respuesta ha sido lavado).
+Si la respuesta ya ha sido cometido, este método produce una IllegalStateException. 
+Salida no comprometido en el búfer de respuesta se borra automáticamente antes de que el delantero.
+Los parámetros de la petición y la respuesta deben ser los mismos objetos que se han pasado al método service del servlet llamando o sean subclases de los ServletRequestWrapper o ServletResponseWrapper clases que las envuelven.
